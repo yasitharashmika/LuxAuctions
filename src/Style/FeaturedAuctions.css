@@ -1,0 +1,241 @@
+/* src/components/FeaturedAuctions.css */
+
+/* General Styling for the Component */
+.featured-auctions {
+    font-family: Arial, sans-serif;
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.featured-auctions-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.featured-auctions-title .highlight {
+    color: #e6b800; /* Gold-like color */
+}
+
+.featured-auctions-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Auction Grid */
+.auction-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 50px; /* Added space below grid for the new button */
+}
+
+/* Individual Auction Card */
+.auction-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.auction-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    overflow: hidden;
+}
+
+.auction-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.auction-category {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #e6b800;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.favorite-button svg {
+    width: 20px;
+    height: 20px;
+    color: #666;
+    stroke-width: 1.5;
+}
+
+/* Auction Details */
+.auction-details {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.seller {
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.current-bid-label {
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.current-bid-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e6b800;
+    margin-bottom: 15px;
+}
+
+.time-left {
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.time-left svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    color: #888;
+}
+
+.auction-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Pushes buttons to the bottom */
+}
+
+.view-details-button,
+.place-bid-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1;
+}
+
+.view-details-button {
+    background-color: #fff;
+    color: #e6b800;
+    border: 2px solid #e6b800;
+}
+
+.view-details-button:hover {
+    background-color: #fcf4db;
+}
+
+.place-bid-button {
+    background-color: #e6b800;
+    color: #fff;
+}
+
+.place-bid-button:hover {
+    background-color: #d1a700;
+}
+
+/* New: "View All Auctions" Button */
+.view-all-auctions-container {
+    text-align: center;
+    margin-top: 30px; /* Space between grid and button */
+}
+
+.view-all-auctions-button {
+    display: inline-flex; /* Allows icon and text to be side-by-side */
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    color: #e6b800;
+    border: 2px solid #e6b800;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow like in the image */
+}
+
+.view-all-auctions-button:hover {
+    background-color: #fcf4db; /* Lighter gold background on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow on hover */
+}
+
+.view-all-auctions-button svg {
+    margin-left: 10px; /* Space between text and arrow */
+    color: #e6b800;
+    width: 20px; /* Adjust size if needed */
+    height: 20px;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .featured-auctions-title {
+        font-size: 2em;
+    }
+    .featured-auctions-description {
+        font-size: 1em;
+    }
+    .auction-items-grid {
+        grid-template-columns: 1fr;
+    }
+    .auction-actions {
+        flex-direction: column;
+    }
+    .view-all-auctions-button {
+        padding: 12px 25px; /* Slightly smaller button on mobile */
+        font-size: 1em;
+    }
+}

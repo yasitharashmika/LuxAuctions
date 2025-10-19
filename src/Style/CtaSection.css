@@ -1,0 +1,90 @@
+/* src/Style/CtaSection.css */
+
+.cta-section {
+    background-color: #1a2238; /* Dark navy blue */
+    color: #ffffff;
+    text-align: center;
+    padding: 80px 20px;
+    font-family: 'Times New Roman', Times, serif; /* Font looks serif-based */
+}
+
+.cta-title {
+    font-size: 2.8em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.cta-highlight {
+    font-family: inherit;
+    color: #e6b800; /* Gold color */
+    display: block; /* Puts it on the next line */
+}
+
+.cta-description {
+    font-family: Arial, sans-serif; /* Sub-text is sans-serif */
+    font-size: 1.1em;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows buttons to stack on smaller screens */
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+    background: linear-gradient(to bottom, #f0c14b, #e6b800);
+    color: #1a2238; /* Dark text color */
+    border-color: #e6b800;
+}
+
+.cta-button.primary:hover {
+    background: linear-gradient(to bottom, #f2c75d, #e9bd1a);
+    box-shadow: 0 4px 15px rgba(240, 193, 75, 0.2);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.cta-button.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.cta-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 60px 20px;
+    }
+    .cta-title {
+        font-size: 2.2em;
+    }
+    .cta-description {
+        font-size: 1em;
+    }
+}

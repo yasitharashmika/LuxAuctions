@@ -1,0 +1,137 @@
+/* ===============================
+   LuxAuction Navigation Bar
+   =============================== */
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* -------- LOGO -------- */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 2px 6px rgba(251, 191, 36, 0.5);
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #d97706;
+  text-decoration: none;
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: -2px;
+}
+
+/* -------- NAV LINKS -------- */
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-item {
+  position: relative;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #f59e0b;
+}
+
+.nav-item.active {
+  color: #f59e0b;
+}
+
+.nav-item.active::after,
+.nav-item:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #fbbf24;
+  transition: all 0.3s ease;
+}
+
+/* -------- BUTTONS -------- */
+.navbar-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #fbbf24;
+  color: #d97706;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: #fbbf24;
+  color: #fff;
+}
+
+.btn-filled {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-filled:hover {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  box-shadow: 0 3px 8px rgba(251, 191, 36, 0.5);
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-buttons {
+    gap: 8px;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+}
