@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My Projects\\Softwear Architecture\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj": {}
+    "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj": {}
   },
   "projects": {
-    "D:\\My Projects\\Softwear Architecture\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj": {
+    "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Projects\\Softwear Architecture\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj",
+        "projectUniqueName": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj",
         "projectName": "LuxAuction_Backend",
-        "projectPath": "D:\\My Projects\\Softwear Architecture\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj",
+        "projectPath": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction_Backend\\LuxAuction_Backend.csproj",
         "packagesPath": "C:\\Users\\yasit\\.nuget\\packages\\",
-        "outputPath": "D:\\My Projects\\Softwear Architecture\\LuxAuction_Backend\\LuxAuction_Backend\\obj\\",
+        "outputPath": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction_Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

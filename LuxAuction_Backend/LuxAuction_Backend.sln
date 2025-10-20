@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36221.1 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxAuction_Backend", "LuxAuction_Backend\LuxAuction_Backend.csproj", "{B8F552E1-FD1B-48DB-AC8C-1BB0F55BC4FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxAuction_Backend", "LuxAuction_Backend\LuxAuction_Backend.csproj", "{F4A26CCE-67D7-4329-9DFD-0769F77D67FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B8F552E1-FD1B-48DB-AC8C-1BB0F55BC4FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8F552E1-FD1B-48DB-AC8C-1BB0F55BC4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8F552E1-FD1B-48DB-AC8C-1BB0F55BC4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8F552E1-FD1B-48DB-AC8C-1BB0F55BC4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A26CCE-67D7-4329-9DFD-0769F77D67FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A26CCE-67D7-4329-9DFD-0769F77D67FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A26CCE-67D7-4329-9DFD-0769F77D67FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A26CCE-67D7-4329-9DFD-0769F77D67FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7080E0EB-DB93-45C0-9AE6-B44C435AF678}
+		SolutionGuid = {28D3C4FB-7100-4ED0-A59B-A2416C1DBDB1}
 	EndGlobalSection
 EndGlobal
