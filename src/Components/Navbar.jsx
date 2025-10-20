@@ -22,6 +22,7 @@ export default function Navbar() {
           <NavLink to="/sell" className="nav-item">Sell Jewelry</NavLink>
           <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/contact" className="nav-item">Contact</NavLink>
+          <NavLink to="/SellerDashboad" className="nav-item">Seller Dashboad</NavLink>
         </div>
 
         {/* Buttons */}

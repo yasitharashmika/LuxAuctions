@@ -7,6 +7,9 @@ import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
 import NotFound from './Pages/NotFound.jsx'
 import Footer from './Components/Footer.jsx'
+import SellerDashboad from './Pages/SellerDashboad.jsx'
+import CreateListing from './Pages/CreateListing.jsx'
+
 
 export default function App() {
   return (
@@ -19,6 +22,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/SellerDashboad" element={<SellerDashboad/>} />
+          <Route path="/CreateListing" element={<CreateListing/>} />
         </Routes>
       </main>
       <Footer />
