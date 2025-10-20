@@ -6,6 +6,8 @@ import Auctions from './Pages/Auctions.jsx'
 import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
 import NotFound from './Pages/NotFound.jsx'
+import Login from './Pages/Login.jsx'
+import Register from './Pages/Register.jsx'
 import Footer from './Components/Footer.jsx'
 
 export default function App() {
@@ -18,6 +20,8 @@ export default function App() {
           <Route path="/auctions" element={<Auctions />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
