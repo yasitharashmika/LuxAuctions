@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+
 import "../Style/NavBar.css";
 
 export default function Navbar() {
@@ -22,12 +23,14 @@ export default function Navbar() {
           <NavLink to="/sell" className="nav-item">Sell Jewelry</NavLink>
           <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/contact" className="nav-item">Contact</NavLink>
+          
+
         </div>
 
         {/* Buttons */}
         <div className="navbar-buttons">
-          <button className="btn-outline">Login</button>
-          <button className="btn-filled">Register</button>
+        <Link to="/login" className="btn-outline">Login</Link>
+        <Link to="/register" className="btn-filled">Register</Link>
         </div>
       </nav>
     </header>
