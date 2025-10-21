@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< Updated upstream
-
-import '../style/CreateListing.css';
-=======
-import '../style/CreateListing.css'
->>>>>>> Stashed changes
+import '../Style/CreateListing.css';
 
 const CreateListing = () => {
     const [formData, setFormData] = useState({
