@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "LuxAuction.Controllers.ListingsController",
+    "Method": "DeleteListing",
+    "RelativePath": "api/Listings/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LuxAuction.Controllers.ListingsController",
     "Method": "Create",
     "RelativePath": "api/Listings/create",
     "HttpMethod": "POST",
@@ -110,6 +126,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LuxAuction.Controllers.ListingsController",
+    "Method": "GetMyListings",
+    "RelativePath": "api/Listings/my-listings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

@@ -3,86 +3,26 @@
   "WorkspaceRootPath": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LuxAuction/True/SqlTable/dbo.AuctionItems.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LuxAuction/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\controllers\\listingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\controllers\\listingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\services\\listingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\services\\listingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\dtos\\createlistingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\dtos\\createlistingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\models\\auctionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\models\\auctionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\repositories\\implementations\\listingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\repositories\\implementations\\listingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\repositories\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\repositories\\implementations\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\repositories\\ilistingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\repositories\\ilistingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Migrations\\20251022141405_SetDecimalPrecision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LuxAuction\\Migrations\\20251022141405_SetDecimalPrecision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\migrations\\20251022141405_setdecimalprecision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\migrations\\20251022141405_setdecimalprecision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Migrations\\20251022135552_CreateAuctionItemsTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LuxAuction\\Migrations\\20251022135552_CreateAuctionItemsTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|d:\\my projects\\softwear architecture\\luxauctions\\luxauction_backend\\luxauction\\luxauction\\migrations\\20251022135552_createauctionitemstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29C2B13E-2628-43BF-889C-02DC3C548E07}|LuxAuction\\LuxAuction.csproj|solutionrelative:luxauction\\migrations\\20251022135552_createauctionitemstable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -97,234 +37,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Services\\UserService.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Services\\UserService.cs*",
-              "RelativeToolTip": "LuxAuction\\Services\\UserService.cs*",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAFYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T06:04:26.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ListingsController.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Controllers\\ListingsController.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Controllers\\ListingsController.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Controllers\\ListingsController.cs",
-              "RelativeToolTip": "LuxAuction\\Controllers\\ListingsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:47:58.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.Users [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LuxAuction/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "dbo.Users [Data]",
+              "Title": "dbo.AuctionItems [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LuxAuction/True/SqlTable/dbo.AuctionItems.sql",
+              "ToolTip": "dbo.AuctionItems [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-22T14:52:17.117Z",
+              "WhenOpened": "2025-10-22T18:37:33.525Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.AuctionItems [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LuxAuction/True/SqlTable/dbo.AuctionItems.sql",
-              "ToolTip": "dbo.AuctionItems [Data]",
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LuxAuction/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-22T14:19:47.14Z",
+              "WhenOpened": "2025-10-22T18:37:24.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\appsettings.json",
-              "RelativeDocumentMoniker": "LuxAuction\\appsettings.json",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\appsettings.json",
-              "RelativeToolTip": "LuxAuction\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-22T07:31:50.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ListingService.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Services\\ListingService.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Services\\ListingService.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Services\\ListingService.cs",
-              "RelativeToolTip": "LuxAuction\\Services\\ListingService.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAUwEkAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:46:46.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Program.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Program.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Program.cs",
-              "RelativeToolTip": "LuxAuction\\Program.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T06:06:58.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Dtos\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Dtos\\RegisterDto.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Dtos\\RegisterDto.cs",
-              "RelativeToolTip": "LuxAuction\\Dtos\\RegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T05:58:29.272Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "LuxAuction\\appsettings.Development.json",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\appsettings.Development.json",
-              "RelativeToolTip": "LuxAuction\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-22T17:17:33.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "LuxAuction\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAuwC8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T05:53:02.497Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CreateListingDto.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Dtos\\CreateListingDto.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Dtos\\CreateListingDto.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Dtos\\CreateListingDto.cs",
-              "RelativeToolTip": "LuxAuction\\Dtos\\CreateListingDto.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA5wBUAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:44:32.125Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Dtos\\LoginDto.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Dtos\\LoginDto.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Dtos\\LoginDto.cs",
-              "RelativeToolTip": "LuxAuction\\Dtos\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T07:19:17.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AuctionItem.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Models\\AuctionItem.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Models\\AuctionItem.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Models\\AuctionItem.cs",
-              "RelativeToolTip": "LuxAuction\\Models\\AuctionItem.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAA7wCoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:41:04.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Models\\User.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Models\\User.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Models\\User.cs",
-              "RelativeToolTip": "LuxAuction\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T05:51:05.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "LuxAuction\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T06:05:40.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ListingRepository.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\Implementations\\ListingRepository.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Repositories\\Implementations\\ListingRepository.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\Implementations\\ListingRepository.cs",
-              "RelativeToolTip": "LuxAuction\\Repositories\\Implementations\\ListingRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:46:21.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 2,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\Implementations\\UserRepository.cs",
               "RelativeDocumentMoniker": "LuxAuction\\Repositories\\Implementations\\UserRepository.cs",
               "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\Implementations\\UserRepository.cs",
               "RelativeToolTip": "LuxAuction\\Repositories\\Implementations\\UserRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAcwCQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA2wCQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-22T06:01:09.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IListingRepository.cs",
-              "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\IListingRepository.cs",
-              "RelativeDocumentMoniker": "LuxAuction\\Repositories\\IListingRepository.cs",
-              "ToolTip": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\IListingRepository.cs",
-              "RelativeToolTip": "LuxAuction\\Repositories\\IListingRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:45:32.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 3,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "LuxAuction\\Repositories\\IUserRepository.cs",
@@ -332,12 +77,11 @@
               "RelativeToolTip": "LuxAuction\\Repositories\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T06:00:13.673Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T06:00:13.673Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 4,
               "Title": "20251022141405_SetDecimalPrecision.cs",
               "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Migrations\\20251022141405_SetDecimalPrecision.cs",
               "RelativeDocumentMoniker": "LuxAuction\\Migrations\\20251022141405_SetDecimalPrecision.cs",
@@ -345,12 +89,11 @@
               "RelativeToolTip": "LuxAuction\\Migrations\\20251022141405_SetDecimalPrecision.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T14:14:06.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T14:14:06.178Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 5,
               "Title": "20251022135552_CreateAuctionItemsTable.cs",
               "DocumentMoniker": "D:\\My Projects\\Softwear Architecture\\LuxAuctions\\LuxAuction_Backend\\LuxAuction\\LuxAuction\\Migrations\\20251022135552_CreateAuctionItemsTable.cs",
               "RelativeDocumentMoniker": "LuxAuction\\Migrations\\20251022135552_CreateAuctionItemsTable.cs",
@@ -358,8 +101,7 @@
               "RelativeToolTip": "LuxAuction\\Migrations\\20251022135552_CreateAuctionItemsTable.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T13:55:52.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T13:55:52.787Z"
             }
           ]
         }

@@ -1,61 +1,152 @@
-import React, { useState } from 'react';
-import "../style/SellerDashboad.css";
+import React, { useState, useEffect } from 'react';
+import "../style/SellerDashboad.css"; // Make sure this CSS exists and styles the elements used
 import { useNavigate } from 'react-router-dom';
-import necklaceImg from '../assets/OIP.jpg';
 
 const SellerDashboard = () => {
-    const [activeTab, setActiveTab] = useState('overview');
-    const navigate = useNavigate(); // Add this line
-    
-    // Sample data - replace with actual API data
-    const [listings, setListings] = useState([
-        {
-            id: 1,
-            title: "Victorian Diamond Necklace",
-            category: "Necklace",
-            startingBid: 15000,
-            currentBid: 18500,
-            bids: 12,
-            status: "active",
-            timeLeft: "2d 15h",
-            image: necklaceImg
-        },
-        {
-            id: 2,
-            title: "Art Deco Emerald Ring",
-            category: "Ring",
-            startingBid: 8500,
-            currentBid: 9200,
-            bids: 8,
-            status: "active",
-            timeLeft: "1d 8h",
-            image: "/api/placeholder/300/200"
-        },
-        {
-            id: 3,
-            title: "Cartier Pearl Earrings",
-            category: "Earrings",
-            startingBid: 12000,
-            currentBid: 12000,
-            bids: 0,
-            status: "upcoming",
-            timeLeft: "Starts in 3d",
-            image: "/api/placeholder/300/200"
+    const [activeTab, setActiveTab] = useState('listings'); // Default to 'listings' tab maybe?
+    const navigate = useNavigate();
+    const [listings, setListings] = useState([]); // State for fetched listings
+    const [isLoading, setIsLoading] = useState(true); // Loading state for fetch
+    const [error, setError] = useState(null); // Error state for fetch/delete
+    const [deletingId, setDeletingId] = useState(null); // Track which listing is being deleted
+
+    // --- Fetch Listings Effect ---
+    useEffect(() => {
+        const fetchListings = async () => {
+            setIsLoading(true); // Start loading indicator
+            setError(null); // Clear previous errors
+            const token = localStorage.getItem("token");
+
+            // Redirect to login if no token is found
+            if (!token) {
+                navigate('/login', { state: { message: "Session expired or user not logged in. Please log in." } });
+                return; // Stop execution
+            }
+
+            try {
+                // Make the API call to get the seller's listings
+                const response = await fetch("https://localhost:7019/api/listings/my-listings", {
+                    method: "GET",
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                        // 'Content-Type': 'application/json' // Not needed for GET
+                    }
+                });
+
+                // Handle authorization errors (token invalid/expired or wrong role)
+                if (!response.ok) {
+                    if (response.status === 401 || response.status === 403) {
+                        localStorage.removeItem("token"); // Clear bad token
+                        navigate('/login', { state: { message: "Authentication failed. Please log in again." } });
+                    } else {
+                        // Handle other potential errors (like 500 Internal Server Error)
+                        const errorData = await response.json().catch(() => ({ message: `HTTP Error ${response.status}` }));
+                        throw new Error(errorData.message || `Failed to fetch listings.`);
+                    }
+                    return; // Stop execution after handling error
+                }
+
+                // If response is OK, parse the JSON data
+                const data = await response.json();
+                setListings(data); // Update the listings state
+
+            } catch (err) {
+                console.error("Error fetching listings:", err);
+                setError(err.message || "Could not fetch listings.");
+                // Optionally redirect on specific network errors if desired
+            } finally {
+                setIsLoading(false); // Stop loading indicator
+            }
+        };
+
+        fetchListings(); // Execute the fetch function when component mounts
+
+        // Dependency array: runs when 'navigate' function reference changes (effectively once)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navigate]);
+    // --- End Fetch Listings Effect ---
+
+    // --- Handle Delete Function ---
+    const handleDelete = async (listingId) => {
+        // Use window.confirm for a simple confirmation dialog
+        if (!window.confirm(`Are you sure you want to permanently delete listing #${listingId}?`)) {
+            return; // Abort if user cancels
         }
-    ]);
 
-    const stats = {
-        totalSales: 457000,
-        activeListings: 8,
-        totalBids: 156,
-        soldItems: 23
+        setDeletingId(listingId); // Set loading state for this specific item
+        setError(null); // Clear previous errors
+        const token = localStorage.getItem("token");
+
+        // Double-check token existence
+        if (!token) {
+             setError("Authentication error. Please log in again.");
+             setDeletingId(null);
+             navigate('/login');
+             return;
+        }
+
+        try {
+            // Make the DELETE request to the backend
+            const response = await fetch(`https://localhost:7019/api/listings/${listingId}`, {
+                method: "DELETE",
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    // No 'Content-Type' or 'Accept' needed typically for DELETE with no body/response body expected
+                }
+            });
+
+            // Check response status
+            if (!response.ok) {
+                let errorMsg = `Error ${response.status}: Failed to delete listing.`;
+                // Provide more specific feedback based on status code
+                if (response.status === 404) {
+                    errorMsg = "Listing not found or you don't have permission to delete it.";
+                } else if (response.status === 401 || response.status === 403) {
+                     errorMsg = "Authentication failed. Please log in again.";
+                     localStorage.removeItem("token"); // Clear bad token
+                     navigate('/login'); // Redirect to login
+                } else {
+                     try { // Attempt to get a more specific error message from the backend response body
+                        const errorData = await response.json();
+                        errorMsg = errorData?.message || errorMsg;
+                     } catch(_) { /* Ignore if body isn't JSON */ }
+                }
+                throw new Error(errorMsg);
+            }
+
+            // If DELETE was successful (status 204 No Content typically), update the UI state
+            setListings(prevListings => prevListings.filter(item => item.id !== listingId));
+            // Optionally show a success message (e.g., using a toast notification library)
+             console.log(`Listing #${listingId} deleted successfully.`);
+            // alert(`Listing #${listingId} deleted successfully.`); // Simple alert confirmation
+
+        } catch (err) {
+            console.error("Delete Error:", err);
+            setError(err.message); // Display the error message on the dashboard
+        } finally {
+            setDeletingId(null); // Clear the loading state for the button
+        }
     };
+    // --- End Handle Delete Function ---
 
-    const recentActivity = [
-        { id: 1, item: "Victorian Diamond Necklace", bidder: "john_doe", amount: 18500, time: "2 hours ago" },
-        { id: 2, item: "Art Deco Emerald Ring", bidder: "jane_smith", amount: 9200, time: "5 hours ago" },
-        { id: 3, item: "Victorian Diamond Necklace", bidder: "collector88", amount: 18200, time: "1 day ago" }
+    // --- Placeholder Data & Helper Functions ---
+    // (Keep the sample stats/activity and getFullImageUrl function)
+    const stats = {
+        totalSales: 457000, // Placeholder
+        activeListings: isLoading ? 0 : listings.filter(l => l.status === 'Active').length, // Derived from fetched data
+        totalBids: 156, // Placeholder
+        soldItems: isLoading ? 0 : listings.filter(l => l.status === 'Sold').length // Derived (though status needs updating logic)
+    };
+    const recentActivity = [ /* Sample data remains */
+         { id: 1, item: "Example Necklace", bidder: "john_doe", amount: 18500, time: "2 hours ago" },
+         { id: 2, item: "Example Ring", bidder: "jane_smith", amount: 9200, time: "5 hours ago" },
     ];
+    const getFullImageUrl = (relativeUrl) => {
+        if (!relativeUrl) return `https://placehold.co/60x40/EEE/31343C?text=No+Img`;
+        // Ensure the base URL matches your backend's HTTPS configuration
+        return `https://localhost:7019${relativeUrl}`;
+    };
+    // --- End Placeholder Data & Helpers ---
 
     return (
         <div className="seller-dashboard">
@@ -63,221 +154,182 @@ const SellerDashboard = () => {
             <div className="dashboard-header">
                 <h1>Seller Dashboard</h1>
                 <p>Manage your jewelry listings and track your auctions</p>
-                
                 <button className="btn-primary" onClick={() => navigate('/create-listing')}>
                     + Create New Listing
                 </button>
             </div>
 
-            {/* Rest of your existing code remains exactly the same */}
             {/* Stats Overview */}
             <div className="stats-grid">
-                <div className="stat-card">
-                    <div className="stat-icon">💰</div>
-                    <div className="stat-info">
-                        <h3>${(stats.totalSales / 1000).toFixed(0)}K</h3>
-                        <p>Total Sales</p>
-                    </div>
-                </div>
-                <div className="stat-card">
-                    <div className="stat-icon">📋</div>
-                    <div className="stat-info">
-                        <h3>{stats.activeListings}</h3>
-                        <p>Active Listings</p>
-                    </div>
-                </div>
-                <div className="stat-card">
-                    <div className="stat-icon">⚡</div>
-                    <div className="stat-info">
-                        <h3>{stats.totalBids}</h3>
-                        <p>Total Bids</p>
-                    </div>
-                </div>
-                <div className="stat-card">
-                    <div className="stat-icon">✅</div>
-                    <div className="stat-info">
-                        <h3>{stats.soldItems}</h3>
-                        <p>Sold Items</p>
-                    </div>
-                </div>
+                 <div className="stat-card">
+                     <div className="stat-icon">💰</div><div className="stat-info"><h3>${(stats.totalSales / 1000).toFixed(0)}K</h3><p>Total Sales</p></div>
+                 </div>
+                 <div className="stat-card">
+                     <div className="stat-icon">📋</div><div className="stat-info"><h3>{isLoading ? '...' : listings.length}</h3><p>Total Listings</p></div>
+                 </div>
+                 <div className="stat-card">
+                     <div className="stat-icon">⚡</div><div className="stat-info"><h3>{isLoading ? '...' : stats.activeListings}</h3><p>Active Listings</p></div>
+                 </div>
+                 <div className="stat-card">
+                     <div className="stat-icon">✅</div><div className="stat-info"><h3>{isLoading ? '...' : stats.soldItems}</h3><p>Sold Items</p></div>
+                 </div>
             </div>
 
             {/* Navigation Tabs */}
             <div className="dashboard-tabs">
-                <button 
-                    className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('overview')}
-                >
-                    Overview
-                </button>
-                <button 
-                    className={`tab-btn ${activeTab === 'listings' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('listings')}
-                >
-                    My Listings
-                </button>
-                <button 
-                    className={`tab-btn ${activeTab === 'activity' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('activity')}
-                >
-                    Activity
-                </button>
-                <button 
-                    className={`tab-btn ${activeTab === 'analytics' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('analytics')}
-                >
-                    Analytics
-                </button>
-            </div>
+                 <button className={`tab-btn ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}> Overview </button>
+                 <button className={`tab-btn ${activeTab === 'listings' ? 'active' : ''}`} onClick={() => setActiveTab('listings')}> My Listings </button>
+                 <button className={`tab-btn ${activeTab === 'activity' ? 'active' : ''}`} onClick={() => setActiveTab('activity')}> Activity </button>
+                 <button className={`tab-btn ${activeTab === 'analytics' ? 'active' : ''}`} onClick={() => setActiveTab('analytics')}> Analytics </button>
+             </div>
 
             {/* Tab Content */}
             <div className="tab-content">
-                {activeTab === 'overview' && (
+                {/* --- Loading and General Error Display --- */}
+                {isLoading && <div className="loading-indicator">Loading your listings... Please wait.</div>}
+                {/* Display general fetch error only if not loading */}
+                {error && !isLoading && <div className="error-message">Error: {error}</div>}
+
+                {/* --- Overview Tab --- */}
+                {activeTab === 'overview' && !isLoading && !error && (
                     <div className="overview-content">
-                        {/* Active Listings */}
+                        {/* Active Listings Section */}
                         <div className="section">
-                            <h2>Active Listings</h2>
-                            <div className="listings-grid">
-                                {listings.filter(item => item.status === 'active').map(item => (
-                                    <div key={item.id} className="listing-card">
-                                        <div className="listing-image">
-                                            <img src={item.image} alt={item.title} />
-                                            <span className="status-badge active">Live</span>
-                                        </div>
-                                        <div className="listing-info">
-                                            <h4>{item.title}</h4>
-                                            <p className="category">{item.category}</p>
-                                            <div className="bid-info">
-                                                <div className="current-bid">
-                                                    <span>Current Bid</span>
-                                                    <strong>${item.currentBid.toLocaleString()}</strong>
-                                                </div>
-                                                <div className="bids-count">
-                                                    <span>Bids</span>
-                                                    <strong>{item.bids}</strong>
-                                                </div>
+                            <h2>Active Listings ({stats.activeListings})</h2>
+                            {stats.activeListings > 0 ? (
+                                <div className="listings-grid">
+                                    {listings.filter(item => item.status === 'Active').map(item => (
+                                        <div key={item.id} className="listing-card">
+                                            <div className="listing-image">
+                                                <img src={getFullImageUrl(item.imageUrl)} alt={item.title} onError={(e) => { e.target.onerror = null; e.target.src=`https://placehold.co/300x200/EEE/31343C?text=Img+Error`; }} />
+                                                <span className={`status-badge ${item.status?.toLowerCase()}`}>{item.status}</span>
                                             </div>
-                                            <div className="time-left">
-                                                <span>⏰ {item.timeLeft}</span>
+                                            <div className="listing-info">
+                                                <h4>{item.title}</h4> <p className="category">{item.category}</p>
+                                                <div className="bid-info">
+                                                    <div className="current-bid"><span>Current Bid</span><strong>${item.currentBid.toLocaleString()}</strong></div>
+                                                    <div className="bids-count"><span>Bids</span><strong>{item.bids}</strong></div>
+                                                </div>
+                                                <div className="time-left"><span>⏰ {item.timeLeft}</span></div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
+                            ) : (<p>You have no active listings at the moment.</p>)}
                         </div>
 
-                        {/* Recent Activity */}
+                        {/* Recent Activity Section (Sample) */}
                         <div className="section">
-                            <h2>Recent Activity</h2>
+                            <h2>Recent Activity (Sample)</h2>
                             <div className="activity-list">
-                                {recentActivity.map(activity => (
+                                {recentActivity.length > 0 ? recentActivity.map(activity => (
                                     <div key={activity.id} className="activity-item">
-                                        <div className="activity-details">
-                                            <strong>{activity.bidder}</strong> placed a bid of 
-                                            <span className="bid-amount"> ${activity.amount.toLocaleString()}</span> on {activity.item}
-                                        </div>
+                                        <div className="activity-details"><strong>{activity.bidder}</strong> placed bid of <span className="bid-amount">${activity.amount.toLocaleString()}</span> on {activity.item}</div>
                                         <span className="activity-time">{activity.time}</span>
                                     </div>
-                                ))}
+                                )) : <p>No recent bid activity.</p>}
                             </div>
                         </div>
                     </div>
                 )}
 
-                {activeTab === 'listings' && (
+                {/* --- Listings Tab --- */}
+                {activeTab === 'listings' && !isLoading && !error && (
                     <div className="listings-content">
                         <div className="listings-header">
-                            <h2>All Listings</h2>
-                            <div className="filter-options">
-                                <select>
-                                    <option>All Status</option>
-                                    <option>Active</option>
-                                    <option>Upcoming</option>
-                                    <option>Completed</option>
-                                </select>
-                            </div>
+                            <h2>All My Listings ({listings.length})</h2>
+                            {/* Potential Filter Dropdown */}
                         </div>
-                        <div className="listings-table">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Item</th>
-                                        <th>Category</th>
-                                        <th>Starting Bid</th>
-                                        <th>Current Bid</th>
-                                        <th>Bids</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {listings.map(item => (
-                                        <tr key={item.id}>
-                                            <td>
-                                                <div className="item-info">
-                                                    <img src={item.image} alt={item.title} />
-                                                    <span>{item.title}</span>
-                                                </div>
-                                            </td>
-                                            <td>{item.category}</td>
-                                            <td>${item.startingBid.toLocaleString()}</td>
-                                            <td>${item.currentBid.toLocaleString()}</td>
-                                            <td>{item.bids}</td>
-                                            <td>
-                                                <span className={`status ${item.status}`}>
-                                                    {item.status}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <div className="action-buttons">
-                                                    <button className="btn-edit">Edit</button>
-                                                    <button className="btn-delete">Delete</button>
-                                                </div>
-                                            </td>
+
+                        {/* Display delete-specific errors here if needed */}
+                        {/* {error && deletingId && <div className="error-message">Error deleting item: {error}</div>} */}
+
+                        {listings.length > 0 ? (
+                            <div className="listings-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Category</th>
+                                            <th>Starting Bid</th>
+                                            <th>Current Bid</th>
+                                            <th>Bids</th>
+                                            <th>Status</th>
+                                            <th>Time Left</th>
+                                            <th>Actions</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                        {listings.map(item => (
+                                            <tr key={item.id}>
+                                                <td>
+                                                    <div className="item-info">
+                                                        <img src={getFullImageUrl(item.imageUrl)} alt={item.title} onError={(e) => { e.target.onerror = null; e.target.src=`https://placehold.co/60x40/EEE/31343C?text=Err`; }}/>
+                                                        <span>{item.title}</span>
+                                                    </div>
+                                                </td>
+                                                <td>{item.category}</td>
+                                                <td>${item.startingBid.toLocaleString()}</td>
+                                                <td>${item.currentBid.toLocaleString()}</td>
+                                                <td>{item.bids}</td>
+                                                <td><span className={`status ${item.status?.toLowerCase()}`}>{item.status}</span></td>
+                                                <td>{item.timeLeft}</td>
+                                                <td>
+                                                    <div className="action-buttons">
+                                                        {/* Delete Button with handler and loading state */}
+                                                        <button
+                                                            className="btn-delete"
+                                                            onClick={() => handleDelete(item.id)}
+                                                            disabled={deletingId === item.id} // Disable only the button being clicked
+                                                        >
+                                                            {deletingId === item.id ? 'Deleting...' : 'Delete'}
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ) : (
+                            <p>You have not created any listings yet. <button className="link-button" onClick={() => navigate('/create-listing')}>Create one now?</button></p>
+                        )}
                     </div>
                 )}
 
-                {activeTab === 'activity' && (
-                    <div className="activity-content">
-                        <h2>Bid Activity</h2>
-                        <div className="full-activity-list">
-                            {recentActivity.map(activity => (
-                                <div key={activity.id} className="activity-card">
-                                    <div className="activity-main">
-                                        <div className="activity-icon">💰</div>
-                                        <div className="activity-text">
-                                            <strong>New Bid</strong>
-                                            <p>{activity.bidder} bid on {activity.item}</p>
-                                            <span className="activity-time">{activity.time}</span>
-                                        </div>
-                                    </div>
-                                    <div className="bid-amount">${activity.amount.toLocaleString()}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+                 {/* --- Activity Tab (Sample) --- */}
+                 {activeTab === 'activity' && (
+                     <div className="activity-content">
+                         <h2>Bid Activity (Sample)</h2>
+                         <div className="full-activity-list">
+                             {recentActivity.length > 0 ? recentActivity.map(activity => (
+                                 <div key={activity.id} className="activity-card">
+                                      <div className="activity-main">
+                                         <div className="activity-icon">💰</div>
+                                         <div className="activity-text">
+                                             <strong>New Bid</strong>
+                                             <p>{activity.bidder} bid on {activity.item}</p>
+                                             <span className="activity-time">{activity.time}</span>
+                                         </div>
+                                     </div>
+                                     <div className="bid-amount">${activity.amount.toLocaleString()}</div>
+                                 </div>
+                             )) : <p>No recent bid activity.</p>}
+                         </div>
+                     </div>
+                 )}
 
-                {activeTab === 'analytics' && (
-                    <div className="analytics-content">
-                        <h2>Sales Analytics</h2>
-                        <div className="analytics-grid">
-                            <div className="chart-placeholder">
-                                <h3>Revenue Overview</h3>
-                                <p>Chart will be displayed here</p>
-                            </div>
-                            <div className="chart-placeholder">
-                                <h3>Bid Activity</h3>
-                                <p>Chart will be displayed here</p>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                 {/* --- Analytics Tab (Placeholder) --- */}
+                 {activeTab === 'analytics' && (
+                      <div className="analytics-content">
+                          <h2>Sales Analytics</h2>
+                          <p>Analytics section coming soon.</p>
+                          <div className="analytics-grid">
+                              <div className="chart-placeholder"><h3>Revenue Overview</h3><p>Chart here</p></div>
+                              <div className="chart-placeholder"><h3>Bid Activity</h3><p>Chart here</p></div>
+                          </div>
+                     </div>
+                 )}
             </div>
         </div>
     );
