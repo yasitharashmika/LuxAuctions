@@ -66,6 +66,133 @@
           }
         }
       }
+    },
+    "/api/Listings/create": {
+      "post": {
+        "tags": [
+          "Listings"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "AuctionDuration",
+                  "Category",
+                  "Description",
+                  "StartingBid",
+                  "Title"
+                ],
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "StartingBid": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ReservePrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "AuctionDuration": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Materials": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Era": {
+                    "type": "string"
+                  },
+                  "Condition": {
+                    "type": "string"
+                  },
+                  "Weight": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Dimensions": {
+                    "type": "string"
+                  },
+                  "Certificates": {
+                    "type": "boolean"
+                  },
+                  "ShippingInfo": {
+                    "type": "string"
+                  },
+                  "Images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Category": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "StartingBid": {
+                  "style": "form"
+                },
+                "ReservePrice": {
+                  "style": "form"
+                },
+                "AuctionDuration": {
+                  "style": "form"
+                },
+                "Materials": {
+                  "style": "form"
+                },
+                "Era": {
+                  "style": "form"
+                },
+                "Condition": {
+                  "style": "form"
+                },
+                "Weight": {
+                  "style": "form"
+                },
+                "Dimensions": {
+                  "style": "form"
+                },
+                "Certificates": {
+                  "style": "form"
+                },
+                "ShippingInfo": {
+                  "style": "form"
+                },
+                "Images": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

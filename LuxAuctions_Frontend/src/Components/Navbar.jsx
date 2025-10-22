@@ -1,17 +1,25 @@
 import React from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { NavLink, Link, useNavigate } from "react-router-dom"; 
 
 import "../Style/NavBar.css";
 
-// --- UPDATED: Accept isAuthenticated and onLogout props ---
-export default function Navbar({ isAuthenticated, onLogout }) {
-  const navigate = useNavigate(); // Hook for navigation
+// --- UPDATED: Accept 'userRole' as a prop ---
+export default function Navbar({ isAuthenticated, userRole, onLogout }) {
+  const navigate = useNavigate(); 
 
-  // --- NEW: Click handler for the logout button ---
   const handleLogoutClick = () => {
-    onLogout(); // Call the logout function from App.jsx
-    navigate("/login"); // Redirect to the login page
+    onLogout(); 
+    navigate("/login"); 
   };
+
+  // --- NEW: Logic to determine the correct dashboard link ---
+  let myAccountLink = "/"; // Fallback link
+  if (userRole === "Seller") {
+    myAccountLink = "/seller-dashboard";
+  } else if (userRole === "Buyer") {
+    myAccountLink = "/buyer-dashboard";
+  }
+  // If role is null or something else, it will just link to "/"
 
   return (
     <header className="navbar">
@@ -32,8 +40,8 @@ export default function Navbar({ isAuthenticated, onLogout }) {
           <NavLink to="/sell" className="nav-item">Sell Jewelry</NavLink>
           <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/contact" className="nav-item">Contact</NavLink>
-          <NavLink to="/seller-dashboard" className="nav-item">Seller Dashboard</NavLink>
-          <NavLink to="/create-listing" className="nav-item">Create Listing</NavLink>
+          
+          
         </div>
 
         {/* --- UPDATED: Conditional Buttons --- */}
@@ -41,8 +49,8 @@ export default function Navbar({ isAuthenticated, onLogout }) {
           {isAuthenticated ? (
             // User is LOGGED IN
             <>
-              {/* You can link this to a /dashboard or /profile page later */}
-              <Link to="/my-account" className="btn-outline">My Account</Link>
+              {/* --- UPDATED: Link now goes to the dynamic route --- */}
+              <Link to={myAccountLink} className="btn-outline">My Account</Link>
               <button onClick={handleLogoutClick} className="btn-filled">Logout</button>
             </>
           ) : (

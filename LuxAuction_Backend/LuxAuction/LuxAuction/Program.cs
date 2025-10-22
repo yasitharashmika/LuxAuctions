@@ -22,6 +22,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserService>();
 
+// --- ADD NEW LISTING SERVICES ---
+builder.Services.AddScoped<IListingRepository, ListingRepository>();
+builder.Services.AddScoped<ListingService>();
+// ---------------------------------
+
 // Add CORS (So React can call the API)
 builder.Services.AddCors(options =>
 {
@@ -65,6 +70,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// --- ADD STATIC FILES ---
+// This allows the server to send image files from wwwroot
+app.UseStaticFiles();
+// ------------------------
 
 app.UseCors("AllowReactApp"); // Use the CORS policy
 

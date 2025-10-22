@@ -345,3 +345,4 @@ D:\My Projects\Softwear Architecture\LuxAuctions\LuxAuction_Backend\LuxAuction\L
 D:\My Projects\Softwear Architecture\LuxAuctions\LuxAuction_Backend\LuxAuction\LuxAuction\obj\Debug\net8.0\LuxAuction.pdb
 D:\My Projects\Softwear Architecture\LuxAuctions\LuxAuction_Backend\LuxAuction\LuxAuction\obj\Debug\net8.0\LuxAuction.genruntimeconfig.cache
 D:\My Projects\Softwear Architecture\LuxAuctions\LuxAuction_Backend\LuxAuction\LuxAuction\obj\Debug\net8.0\ref\LuxAuction.dll
+D:\My Projects\Softwear Architecture\LuxAuctions\LuxAuction_Backend\LuxAuction\LuxAuction\bin\Debug\net8.0\LuxAuction.staticwebassets.runtime.json
