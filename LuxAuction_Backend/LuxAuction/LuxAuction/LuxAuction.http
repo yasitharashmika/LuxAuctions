@@ -1,0 +1,6 @@
+@LuxAuction_HostAddress = http://localhost:5092
+
+GET {{LuxAuction_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

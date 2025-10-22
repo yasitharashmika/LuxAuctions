@@ -98,6 +98,11 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Added for consistency on <a> tags */
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .btn-outline:hover {
@@ -110,10 +115,16 @@
   border: none;
   color: #fff;
   font-weight: 500;
-  padding: 8px 18px;
+  /* Updated padding to match height of outline button */
+  padding: 10px 19px; 
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Added for consistency on <a> and <button> tags */
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .btn-filled:hover {

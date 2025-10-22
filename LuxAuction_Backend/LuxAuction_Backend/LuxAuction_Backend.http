@@ -1,6 +1,0 @@
-@LuxAuction_Backend_HostAddress = http://localhost:5043
-
-GET {{LuxAuction_Backend_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
