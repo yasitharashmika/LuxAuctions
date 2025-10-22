@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "LuxAuction",
-    "version": "1.0"
+    "title": "LuxAuction API",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/register": {
@@ -206,6 +206,71 @@
         }
       }
     },
+    "/api/Listings/active": {
+      "get": {
+        "tags": [
+          "Listings"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Listings/featured": {
+      "get": {
+        "tags": [
+          "Listings"
+        ],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Listings/{id}": {
       "delete": {
         "tags": [
@@ -268,6 +333,18 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "Bearer"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

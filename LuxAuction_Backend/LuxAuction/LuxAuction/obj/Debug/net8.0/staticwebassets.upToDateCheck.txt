@@ -1,3 +1,5 @@
 wwwroot\uploads\06508a11-f3e5-4e69-9804-ebd1e33a9cd6_OIP.jpg
 wwwroot\uploads\9e6246fb-5b87-4369-91f9-abb64c3510e2_OIP.jpg
 wwwroot\uploads\07e2994a-3514-4110-99d7-05805b944fb8_download (2).jpeg
+wwwroot\uploads\faa94b7c-7334-4ac9-a61a-db38172d5195_download (10).jpeg
+wwwroot\uploads\7a562ef6-b5c8-43bf-ad12-86127425fa3b_screencapture-localhost-3000-user-dashboard-profile-2025-10-15-12_37_19.png

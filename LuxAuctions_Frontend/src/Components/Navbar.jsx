@@ -37,7 +37,6 @@ export default function Navbar({ isAuthenticated, userRole, onLogout }) {
         <div className="navbar-links">
           <NavLink to="/" end className="nav-item">Home</NavLink>
           <NavLink to="/auctions" className="nav-item">Auctions</NavLink>
-          <NavLink to="/sell" className="nav-item">Sell Jewelry</NavLink>
           <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/contact" className="nav-item">Contact</NavLink>
           

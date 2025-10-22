@@ -11,5 +11,6 @@
         public string Status { get; set; }       // Convert enum to string
         public string TimeLeft { get; set; }     // We'll calculate this
         public string? ImageUrl { get; set; }    // Get the first image URL
+        public string? SellerName { get; set; } // To display "by Seller Name"
     }
 }

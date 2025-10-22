@@ -49,6 +49,37 @@
   },
   {
     "ContainingType": "LuxAuction.Controllers.ListingsController",
+    "Method": "GetActiveListings",
+    "RelativePath": "api/Listings/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "price",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LuxAuction.Controllers.ListingsController",
     "Method": "Create",
     "RelativePath": "api/Listings/create",
     "HttpMethod": "POST",
@@ -123,6 +154,22 @@
       {
         "Name": "Images",
         "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LuxAuction.Controllers.ListingsController",
+    "Method": "GetFeaturedListings",
+    "RelativePath": "api/Listings/featured",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "count",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

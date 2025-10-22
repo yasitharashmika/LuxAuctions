@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LuxAuction")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e2d82a977f6f204b6139b1595f7d5f42410dadf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ede45a2c038482902cecc60fbec792a0a902733")]
 [assembly: System.Reflection.AssemblyProductAttribute("LuxAuction")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LuxAuction")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

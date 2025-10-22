@@ -7,18 +7,21 @@ using System.IdentityModel.Tokens.Jwt; // Required for JwtRegisteredClaimNames i
 using Microsoft.Extensions.Logging; // Required for ILogger
 using Microsoft.AspNetCore.Http; // Required for StatusCodes
 using System.Linq; // Required for Count()
+using System; // Required for StringComparison, Guid
+using System.Threading.Tasks; // Required for Task<IActionResult>
+using System.Collections.Generic; // Required for List<T>
 
 namespace LuxAuction.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize] // Requires a valid JWT for all actions in this controller
+    [Authorize] // Requires a valid JWT for most actions by default unless overridden by [AllowAnonymous]
     public class ListingsController : ControllerBase
     {
         private readonly ListingService _listingService;
-        private readonly ILogger<ListingsController> _logger; // Use ILogger
+        private readonly ILogger<ListingsController> _logger; // Use ILogger for logging
 
-        // Updated constructor to inject ILogger
+        // Constructor to inject services and logger via Dependency Injection
         public ListingsController(ListingService listingService, ILogger<ListingsController> logger)
         {
             _listingService = listingService;
@@ -26,51 +29,54 @@ namespace LuxAuction.Controllers
         }
 
         // --- Endpoint to CREATE a new listing ---
+        // POST /api/listings/create
         [HttpPost("create")]
-        [Authorize(Roles = "Seller")] // Only Sellers can create listings
-        public async Task<IActionResult> Create([FromForm] CreateListingDto dto)
+        [Authorize(Roles = "Seller")] // Only users with the "Seller" role can access this
+        public async Task<IActionResult> Create([FromForm] CreateListingDto dto) // [FromForm] is needed for file uploads (IFormFile)
         {
             _logger.LogInformation("--- Create Listing Endpoint Hit ---");
             _logger.LogDebug("Received DTO: Title='{Title}', Category='{Category}', StartingBid={StartingBid}, ImageCount={ImageCount}",
-                dto?.Title, dto?.Category, dto?.StartingBid, dto?.Images?.Count ?? 0); // Log key DTO details
+                dto?.Title, dto?.Category, dto?.StartingBid, dto?.Images?.Count ?? 0);
 
-            _logger.LogInformation("Is Authenticated: {IsAuthenticated}", User.Identity?.IsAuthenticated);
-            _logger.LogInformation("Claims found in token:");
-            foreach (var claim in User.Claims)
-            {
-                _logger.LogInformation("  Type: {ClaimType}, Value: {ClaimValue}", claim.Type, claim.Value);
-            }
-
+            // Extract Seller ID from the validated token's claims
             var sellerId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             _logger.LogInformation("Attempting to find NameIdentifier claim. Result: {SellerIdResult}", sellerId ?? "NOT FOUND");
 
+            // Check if the Seller ID claim was found in the token
             if (string.IsNullOrEmpty(sellerId))
             {
                 _logger.LogWarning("Seller ID (NameIdentifier) was null or empty. Token might be missing claim or validation failed.");
-                return Unauthorized("User ID claim (NameIdentifier) not found in token."); // 401
+                // Return 401 Unauthorized if the ID claim is missing (should be rare if [Authorize] passed)
+                return Unauthorized(new { message = "User ID claim (NameIdentifier) not found in token." });
             }
 
             _logger.LogInformation("Calling ListingService.CreateListingAsync for Seller ID: {SellerId}", sellerId);
 
+            // Call the service layer to handle business logic, file saving, and database interaction
             var (success, message, createdItem) = await _listingService.CreateListingAsync(dto, sellerId);
 
-            if (!success)
+            // Handle potential failure from the service layer
+            if (!success || createdItem == null)
             {
                 _logger.LogError("Error from ListingService during creation for Seller ID {SellerId}: {ErrorMessage}", sellerId, message);
-                // Return 400 Bad Request with the specific error message from the service
+                // Return 400 Bad Request with the specific error message
                 return BadRequest(new { message = $"Listing creation failed: {message}" });
             }
 
-            _logger.LogInformation("SUCCESS: Listing created with ID: {ListingId} for Seller ID: {SellerId}", createdItem?.Id, sellerId);
-            // Return 201 Created status with the location and the created item details
-            // Point the location header to where the new resource *could* be retrieved (e.g., a future GetById endpoint)
-            return CreatedAtAction(nameof(GetMyListings), new { /* No ID needed for GetMyListings route */ }, createdItem);
+            _logger.LogInformation("SUCCESS: Listing created with ID: {ListingId} for Seller ID: {SellerId}", createdItem.Id, sellerId);
+            // Return 201 Created status on success.
+            // Provides the newly created item in the response body.
+            // Sets the 'Location' header pointing to where the resource *could* be retrieved (optional).
+            // Using GetActiveListings route name as a placeholder - ideally point to a GetById/{id} endpoint if created.
+            return CreatedAtAction(nameof(GetActiveListings), new { /* id = createdItem.Id */ }, createdItem);
         }
 
+
         // --- Endpoint to GET listings for the logged-in seller ---
-        [HttpGet("my-listings")]      // Route: GET /api/listings/my-listings
-        [Authorize(Roles = "Seller")] // Only Sellers can access their listings
+        // GET /api/listings/my-listings
+        [HttpGet("my-listings")]
+        [Authorize(Roles = "Seller")] // Only Sellers can access their own listings
         public async Task<IActionResult> GetMyListings()
         {
             _logger.LogInformation("--- GetMyListings Endpoint Hit ---");
@@ -82,7 +88,7 @@ namespace LuxAuction.Controllers
             if (string.IsNullOrEmpty(sellerId))
             {
                 _logger.LogWarning("Seller ID (NameIdentifier) was null or empty in GetMyListings.");
-                return Unauthorized("User ID claim (NameIdentifier) not found in token."); // 401
+                return Unauthorized(new { message = "User ID claim (NameIdentifier) not found in token." }); // 401
             }
 
             _logger.LogInformation("Calling ListingService.GetMyListingsAsync for Seller ID: {SellerId}", sellerId);
@@ -91,20 +97,72 @@ namespace LuxAuction.Controllers
             {
                 var listings = await _listingService.GetMyListingsAsync(sellerId);
                 _logger.LogInformation("Successfully retrieved {ListingCount} listings for Seller ID: {SellerId}", listings.Count(), sellerId);
-                // Return 200 OK with the list of listing DTOs
-                return Ok(listings);
+                return Ok(listings); // 200 OK with the list of ListingDto
             }
-            catch (Exception ex) // Catch potential exceptions from the service/repo layer
+            catch (Exception ex) // Catch unexpected errors from the service/repository
             {
                 _logger.LogError(ex, "An unexpected error occurred in GetMyListings for Seller ID: {SellerId}", sellerId);
                 // Return 500 Internal Server Error for unhandled exceptions
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An error occurred while fetching listings." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An error occurred while fetching your listings." });
             }
         }
 
+        // --- Endpoint to GET all ACTIVE listings (PUBLIC, with filtering/sorting) ---
+        // GET /api/listings/active?search=term&category=cat&price=range&sort=order
+        [HttpGet("active")]
+        [AllowAnonymous] // Overrides the controller-level [Authorize], making this public
+        public async Task<IActionResult> GetActiveListings([FromQuery] AuctionQueryParameters parameters) // Bind query string params
+        {
+            _logger.LogInformation("--- GetActiveListings Endpoint Hit --- QueryParams: Search={Search}, Cat={Category}, Price={Price}, Sort={Sort}",
+                parameters.SearchTerm, parameters.Category, parameters.PriceRange, parameters.SortBy);
+
+            try
+            {
+                // Call the service method that handles filtering and sorting
+                var listings = await _listingService.GetActiveListingsFilteredAsync(parameters);
+                _logger.LogInformation("Successfully retrieved {ListingCount} active listings based on parameters.", listings.Count());
+                return Ok(listings); // 200 OK with the potentially filtered/sorted list
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred in GetActiveListings.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An error occurred while fetching active listings." }); // 500
+            }
+        }
+
+        // --- Endpoint to GET FEATURED listings (PUBLIC) ---
+        // GET /api/listings/featured?count=3
+        [HttpGet("featured")]
+        [AllowAnonymous] // Public access
+        public async Task<IActionResult> GetFeaturedListings([FromQuery] int count = 3) // Optional count, defaults to 3
+        {
+            _logger.LogInformation("--- GetFeaturedListings Endpoint Hit (Count: {Count}) ---", count);
+
+            // Basic validation for count parameter
+            if (count <= 0 || count > 10) // Example limit: fetch between 1 and 10 items
+            {
+                count = 3; // Reset to default if invalid
+                _logger.LogWarning("Invalid count requested for featured listings, defaulting to {DefaultCount}.", count);
+            }
+
+            try
+            {
+                var listings = await _listingService.GetFeaturedListingsAsync(count);
+                _logger.LogInformation("Successfully retrieved {ListingCount} featured listings.", listings.Count());
+                return Ok(listings); // 200 OK with data
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An unexpected error occurred in GetFeaturedListings.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An error occurred while fetching featured listings." }); // 500
+            }
+        }
+
+
         // --- Endpoint to DELETE a listing ---
-        [HttpDelete("{id}")]          // Route: DELETE /api/listings/{id} (e.g., /api/listings/5)
-        [Authorize(Roles = "Seller")] // Only Sellers can delete their listings
+        // DELETE /api/listings/{id}
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Seller")] // Only Sellers can delete their own listings
         public async Task<IActionResult> DeleteListing(int id)
         {
             _logger.LogInformation("--- Delete Listing Endpoint Hit for ID: {ListingId} ---", id);
@@ -116,22 +174,23 @@ namespace LuxAuction.Controllers
             if (string.IsNullOrEmpty(sellerId))
             {
                 _logger.LogWarning("Seller ID (NameIdentifier) was null or empty in DeleteListing.");
-                return Unauthorized("User ID claim (NameIdentifier) not found in token."); // 401
+                return Unauthorized(new { message = "User ID claim (NameIdentifier) not found in token." }); // 401
             }
 
             _logger.LogInformation("Calling ListingService.DeleteListingAsync for Listing ID: {ListingId}, Seller ID: {SellerId}", id, sellerId);
 
+            // Call the service to attempt deletion
             var (success, message) = await _listingService.DeleteListingAsync(id, sellerId);
 
             if (!success)
             {
                 _logger.LogError("Error from ListingService during deletion of Listing ID {ListingId} for Seller ID {SellerId}: {ErrorMessage}", id, sellerId, message);
-                // If the item wasn't found or didn't belong to user, return 404 Not Found
+                // Return 404 Not Found if the service indicated item not found or permission denied
                 if (message.Contains("not found", StringComparison.OrdinalIgnoreCase) || message.Contains("permission", StringComparison.OrdinalIgnoreCase))
                 {
                     return NotFound(new { message }); // 404
                 }
-                // Otherwise, it might be another error (like DB error from service)
+                // Otherwise, return 400 Bad Request for other failures (like DB errors reported by service)
                 return BadRequest(new { message }); // 400
             }
 
