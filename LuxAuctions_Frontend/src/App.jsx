@@ -9,6 +9,8 @@ import NotFound from './Pages/NotFound.jsx'
 import Login from './Pages/Login.jsx'
 import Register from './Pages/Register.jsx'
 import Footer from './Components/Footer.jsx'
+import UserDashboard from './Pages/UserDashboard.jsx'
+
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/userdashboard" element={<UserDashboard />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

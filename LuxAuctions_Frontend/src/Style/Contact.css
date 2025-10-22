@@ -1,3 +1,13 @@
+.seller-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: 
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)),
+        url('../assets/hero-bg.jpg') center/cover fixed;
+    min-height: 100vh;
+    color: #ffffff;
+}
 .contact-container {
     position: relative;
     min-height: 100vh;
